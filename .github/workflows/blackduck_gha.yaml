@@ -1,0 +1,22 @@
+name: BlackDuck Scan
+
+on:
+  # Trigger the workflow on push or pull request
+  push:
+  pull_request:
+    branches:
+      - master
+  # Enable manual dispatch from 'Actions'-Tab
+  workflow_dispatch:
+
+jobs:
+  blackduck-scan-gha:
+    name: blackduck-scan
+    runs-on: [dmo-runners]
+    steps:
+      - uses: actions/checkout@v2
+      # - uses: sip-shared-libraries/blackduck-scan-gha@v1.2      
+        with:
+          api-token: ${{ secrets.BLACKDUCKSCAN_TOKEN }}
+          project-name: 'blackduck-scan-gha'
+          scan-mode: RAPID
