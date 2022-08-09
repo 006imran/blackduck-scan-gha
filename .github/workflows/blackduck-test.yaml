@@ -1,0 +1,12 @@
+blackduck:
+  name: BlackDuck
+  runs-on: self-hosted
+  steps:
+    - uses: philips-labs/blackduck-scanner-action@v1
+      with:
+        token: ${{ secrets.BLACKDUCKSCAN_TOKEN }}
+        projectName: 'blackduck-scan-gha'
+        versionPrefix: You version prefix
+        url: https://your.black.duck.swamp/
+        sourcePath: /code
+        extraArgs: --detect.yarn.prod.only=true
