@@ -15,7 +15,8 @@ jobs:
     runs-on: win11-laptop
     steps:
       - uses: actions/checkout@v2
-      # - uses: sip-shared-libraries/blackduck-scan-gha@v1.2      
+      # - uses: sip-shared-libraries/blackduck-scan-gha@v1.2
+      - uses: philips-labs/blackduck-scanner-action@v1
         with:
           api-token: ${{ secrets.BLACKDUCKSCAN_TOKEN }}
           project-name: 'blackduck-scan-gha'
